@@ -1,0 +1,33 @@
+# IntelliJ IDEA files
+.idea/
+*.iml
+*.iws
+out/
+target/
+*.log
+logs/
+hs_err_pid*
+
+# Maven
+.mvn/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+
+# Logs and temp files
+*.log
+logs/
+*.tmp
+*.swp
+*.swo
+*.bak
+*.ser
+
+# IDE Settings
+*.sublime-workspace
+.vscode/
+*.code-workspace
+
