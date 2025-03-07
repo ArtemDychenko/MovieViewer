@@ -1,17 +1,38 @@
-package org.example;
+package com.artem.movieViewer;
 
-import lombok.Data;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
-import java.util.Comparator;
 import java.util.Objects;
+import java.util.UUID;
 
+import jakarta.transaction.Transactional;
+import lombok.*;
+
+@Entity
+@Table(name = "movies")
 @Data
-class Movie implements Comparable<Movie>, Serializable {
-    final String name;
-    final int date_of_release;
-    final int time;
-    final String genre;
+@NoArgsConstructor
+@AllArgsConstructor
+public class Movie implements Comparable<Movie>, Serializable {
+    @Id
+    @Column(name = "id")
+    private final UUID id = UUID.randomUUID();
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "date_of_release")
+    private int date_of_release;
+
+    @Column(name = "time")
+    private int time;
+
+    @Column(name = "genre")
+    private String genre;
+
+    @ManyToOne
+    @JoinColumn(name = "director_id") // Foreign Key
     public Director director;
 
     private Movie(Builder builder) {
@@ -21,6 +42,9 @@ class Movie implements Comparable<Movie>, Serializable {
         this.genre = builder.genre;
     }
 
+    public void setDirector(Director director) {
+        this.director = director;
+    }
 
 
     @Override
@@ -61,7 +85,7 @@ class Movie implements Comparable<Movie>, Serializable {
         }
 
         public Builder time(int time) {
-            this.time=time;
+            this.time = time;
             return this;
         }
 
