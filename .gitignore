@@ -1,3 +1,7 @@
+HELP.md
+!**/src/main/**/target/
+!**/src/test/**/target/
+
 # IntelliJ IDEA files
 .idea/
 *.iml
@@ -18,16 +22,27 @@ release.properties
 
 
 # Logs and temp files
-*.log
-logs/
 *.tmp
 *.swp
 *.swo
 *.bak
 *.ser
+src/test/
+src/main/resources
 
 # IDE Settings
 *.sublime-workspace
 .vscode/
 *.code-workspace
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+
 

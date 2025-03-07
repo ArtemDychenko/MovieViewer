@@ -1,11 +1,11 @@
-package org.example;
+package com.artem.movieViewer;
 
 import lombok.Data;
 
 import java.util.Objects;
 
 @Data
-class MovieDTO implements Comparable<MovieDTO> {
+public class MovieDTO implements Comparable<MovieDTO> {
     private final String name;
     private final int date_of_release;
     private final int time;
@@ -13,15 +13,13 @@ class MovieDTO implements Comparable<MovieDTO> {
     private final String director;
 
 
-
     public MovieDTO(Movie movie) {
-        this.name = movie.name;
-        this.date_of_release=movie.date_of_release;
-        this.time=movie.time;
-        this.genre = movie.genre;
-        this.director = movie.director.getName();
+        this.name = movie.getName();
+        this.date_of_release = movie.getDate_of_release();
+        this.time = movie.getTime();
+        this.genre = movie.getGenre();
+        this.director = movie.getDirector() != null ? movie.getDirector().getName() : "No director";
     }
-
 
     @Override
     public int compareTo(MovieDTO other) {
@@ -34,7 +32,7 @@ class MovieDTO implements Comparable<MovieDTO> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         MovieDTO that = (MovieDTO) o;
-        return Integer.compare(that.date_of_release, date_of_release) == 0 && Objects.equals(name, that.name) && Integer.compare(that.time, time) == 0 && Objects.equals(genre, that.genre)  && Objects.equals(director, that.director);
+        return Integer.compare(that.date_of_release, date_of_release) == 0 && Objects.equals(name, that.name) && Integer.compare(that.time, time) == 0 && Objects.equals(genre, that.genre) && Objects.equals(director, that.director);
     }
 
     @Override
