@@ -1,7 +1,7 @@
-package com.artem.movieViewer.movie.controller.api;
+package com.artem.movieViewer.director.controller.api;
 
-import com.artem.movieViewer.movie.dto.GetDirectorResponse;
-import com.artem.movieViewer.movie.dto.GetDirectorsResponse;
+import com.artem.movieViewer.director.dto.GetDirectorResponse;
+import com.artem.movieViewer.director.dto.GetDirectorsResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

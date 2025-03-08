@@ -1,9 +1,9 @@
 package com.artem.movieViewer.movie.entity;
 
+import com.artem.movieViewer.director.entity.Director;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
-import java.util.Objects;
 import java.util.UUID;
 
 import lombok.*;

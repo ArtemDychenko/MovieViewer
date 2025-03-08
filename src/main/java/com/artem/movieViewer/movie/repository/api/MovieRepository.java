@@ -1,6 +1,6 @@
 package com.artem.movieViewer.movie.repository.api;
 
-import com.artem.movieViewer.movie.entity.Director;
+import com.artem.movieViewer.director.entity.Director;
 import com.artem.movieViewer.movie.entity.Movie;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

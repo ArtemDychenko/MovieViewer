@@ -1,8 +1,8 @@
-package com.artem.movieViewer.movie.function;
+package com.artem.movieViewer.director.function;
 
 
-import com.artem.movieViewer.movie.dto.GetDirectorsResponse;
-import com.artem.movieViewer.movie.entity.Director;
+import com.artem.movieViewer.director.dto.GetDirectorsResponse;
+import com.artem.movieViewer.director.entity.Director;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

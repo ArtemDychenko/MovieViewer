@@ -1,10 +1,9 @@
-package com.artem.movieViewer.movie.service.impl;
+package com.artem.movieViewer.director.service.impl;
 
 
-import com.artem.movieViewer.movie.entity.Director;
-import com.artem.movieViewer.movie.repository.api.DirectorRepository;
-import com.artem.movieViewer.movie.service.api.DirectorService;
-import jakarta.transaction.Transactional;
+import com.artem.movieViewer.director.entity.Director;
+import com.artem.movieViewer.director.repository.api.DirectorRepository;
+import com.artem.movieViewer.director.service.api.DirectorService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.artem.movieViewer.movie.dto;
+package com.artem.movieViewer.director.dto;
 
 import lombok.*;
 

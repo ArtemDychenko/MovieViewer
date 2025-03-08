@@ -1,11 +1,11 @@
-package com.artem.movieViewer.movie.controller.impl;
+package com.artem.movieViewer.director.controller.impl;
 
-import com.artem.movieViewer.movie.controller.api.DirectorController;
-import com.artem.movieViewer.movie.dto.GetDirectorResponse;
-import com.artem.movieViewer.movie.dto.GetDirectorsResponse;
-import com.artem.movieViewer.movie.function.DirectorToResponseFunction;
-import com.artem.movieViewer.movie.function.DirectorsToResponseFunction;
-import com.artem.movieViewer.movie.service.impl.DirectorDefaultService;
+import com.artem.movieViewer.director.controller.api.DirectorController;
+import com.artem.movieViewer.director.dto.GetDirectorResponse;
+import com.artem.movieViewer.director.dto.GetDirectorsResponse;
+import com.artem.movieViewer.director.function.DirectorToResponseFunction;
+import com.artem.movieViewer.director.function.DirectorsToResponseFunction;
+import com.artem.movieViewer.director.service.impl.DirectorDefaultService;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

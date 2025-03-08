@@ -1,8 +1,8 @@
-package com.artem.movieViewer.movie.service.api;
+package com.artem.movieViewer.director.service.api;
 
 
 
-import com.artem.movieViewer.movie.entity.Director;
+import com.artem.movieViewer.director.entity.Director;
 
 import java.util.List;
 import java.util.Optional;

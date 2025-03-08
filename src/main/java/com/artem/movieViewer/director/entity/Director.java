@@ -1,13 +1,10 @@
-package com.artem.movieViewer.movie.entity;
+package com.artem.movieViewer.director.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "directors")

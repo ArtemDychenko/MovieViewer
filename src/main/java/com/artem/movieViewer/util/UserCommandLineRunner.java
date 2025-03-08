@@ -1,9 +1,9 @@
 //package com.artem.movieViewer.util;
 //
-//import com.artem.movieViewer.movie.entity.Director;
+//import com.artem.movieViewer.director.entity.Director;
 //import com.artem.movieViewer.movie.entity.Movie;
 //
-//import com.artem.movieViewer.movie.service.api.DirectorService;
+//import com.artem.movieViewer.director.service.api.DirectorService;
 //import com.artem.movieViewer.movie.service.api.MovieService;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.boot.CommandLineRunner;
