@@ -3,7 +3,6 @@ package com.artem.movieViewer.movie.dto;
 import lombok.*;
 
 import java.util.List;
-import java.util.UUID;
 
 
 @Getter
@@ -23,7 +22,7 @@ public class GetMoviesResponse {
     @ToString
     @EqualsAndHashCode
     public static class Movie {
-        private UUID id;
+        private int id;
         private String name;
         private int date_of_release;
         private int time;

@@ -3,7 +3,6 @@ package com.artem.movieViewer.director.dto;
 import lombok.*;
 
 import java.util.List;
-import java.util.UUID;
 
 
 @Getter
@@ -17,13 +16,11 @@ public class GetDirectorsResponse {
 
     @Getter
     @Setter
-    @Builder
     @NoArgsConstructor
     @AllArgsConstructor(access = AccessLevel.PRIVATE)
-    @ToString
-    @EqualsAndHashCode
+    @Builder
     public static class Director {
-        private UUID id;
+        private int id;
         private String name;
         private String yearOfBirth;
     }

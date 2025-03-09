@@ -4,22 +4,21 @@ import com.artem.movieViewer.movie.entity.Movie;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 public interface MovieService {
 
-    Optional<Movie> findMovieById(UUID id);
+    Optional<Movie> findMovieById(int id);
 
     Optional<Movie> findMovieByName(String name);
 
-    void createMovie(Movie movie);
+//    int create(Movie movie);
 
-    List<Movie> getAllMovies();
+    List<Movie> findAll();
 
     void updateMovie(Movie movie);
 
-    void deleteMovie(UUID id);
+    void deleteMovie(int id);
 
-    Optional<List<Movie>> findAllByDirector(UUID directorId);
+    Optional<List<Movie>> findAllByDirector(int directorId);
 
 }

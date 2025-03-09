@@ -1,8 +1,8 @@
 package com.artem.movieViewer.util;
 
 import com.artem.movieViewer.director.entity.Director;
-import com.artem.movieViewer.movie.entity.Movie;
 import com.artem.movieViewer.director.repository.api.DirectorRepository;
+import com.artem.movieViewer.movie.entity.Movie;
 import com.artem.movieViewer.movie.repository.api.MovieRepository;
 import com.artem.movieViewer.user.entity.User;
 import com.artem.movieViewer.user.entity.UserRole;

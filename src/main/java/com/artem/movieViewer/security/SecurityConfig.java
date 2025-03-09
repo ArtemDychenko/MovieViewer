@@ -38,33 +38,33 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http, DefaultAuthenticationEntryPoint authenticationEntryPoint) throws Exception {
 
         http.securityMatcher("/api/**").authorizeHttpRequests(rmr -> rmr
-                        .requestMatchers(
-                                HttpMethod.GET,
-                                "/api/users"
-                        ).hasRole(UserRole.ADMIN.getValue())
-                        .requestMatchers(
-                                HttpMethod.DELETE,
-                                "/api/movie/{id}",
-                                "/api/director/{id}"
+                                .requestMatchers(
+                                        HttpMethod.GET,
+                                        "/api/users"
+                                ).hasRole(UserRole.ADMIN.getValue())
+                                .requestMatchers(
+                                        HttpMethod.DELETE,
+                                        "/api/movie/{id}",
+                                        "/api/director/{id}"
 //                                "/api/comment/{id}" TODO warto dodać kiedy zaimplementuję message
-                        ).hasRole(UserRole.ADMIN.getValue())
-                        .requestMatchers(
-                                HttpMethod.PUT,
-                                "/api/movie/{id}",
-                                "/api/director/{id}"
-                        ).hasRole(UserRole.ADMIN.getValue())
-                        .requestMatchers(
-                                HttpMethod.POST,
-                                "/api/movie",
-                                "/api/director"
-                        ).hasRole(UserRole.ADMIN.getValue())
-                        .requestMatchers(
+                                ).hasRole(UserRole.ADMIN.getValue())
+                                .requestMatchers(
+                                        HttpMethod.PUT,
+                                        "/api/movie/{id}",
+                                        "/api/director/{id}"
+                                ).hasRole(UserRole.ADMIN.getValue())
+                                .requestMatchers(
+                                        HttpMethod.POST,
+                                        "/api/movie",
+                                        "/api/director"
+                                ).hasRole(UserRole.ADMIN.getValue())
+                                .requestMatchers(
 //                                "/api/comment/*", TODO dodać kiedy zaimplementuję comment
-                                "/api/profile",
-                                "/api/profile/*",
-                                "/api/logout"
-                        ).authenticated()
-                        .anyRequest().permitAll()
+                                        "/api/profile",
+                                        "/api/profile/*",
+                                        "/api/logout"
+                                ).authenticated()
+                                .anyRequest().permitAll()
                 ).httpBasic(httpbc -> httpbc
                         .authenticationEntryPoint(authenticationEntryPoint)
                 ).sessionManagement(smc -> smc

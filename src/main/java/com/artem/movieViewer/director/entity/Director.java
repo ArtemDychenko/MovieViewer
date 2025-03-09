@@ -1,10 +1,12 @@
 package com.artem.movieViewer.director.entity;
 
+import com.artem.movieViewer.movie.entity.Movie;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
-import java.util.UUID;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "directors")
@@ -15,21 +17,20 @@ import java.util.UUID;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Director implements Serializable {
     @Id
-    @Column(name = "id")
-    private final UUID id = UUID.randomUUID();
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    int id;
 
     @Column(name = "name")
-    private String name;
+    String name;
 
     @Column(name = "year_of_birth")
-    private int yearOfBirth;
+    int yearOfBirth;
 
-//    @OneToMany(mappedBy = "director", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private List<Movie> movies = new ArrayList<>();
-
-
-
-
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @Builder.Default
+    @OneToMany(mappedBy = "director", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    List<Movie> movies = new ArrayList<>();
 
 
 }

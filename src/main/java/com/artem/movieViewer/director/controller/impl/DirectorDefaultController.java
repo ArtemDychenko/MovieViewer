@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.UUID;
-
 @RestController
 @Log
 public class DirectorDefaultController implements DirectorController {
@@ -32,26 +30,25 @@ public class DirectorDefaultController implements DirectorController {
     }
 
 
-
     @Override
     public GetDirectorsResponse getDirectors() {
-        return directorsToResponse.apply(directorService.getAllDirectors());
+        return directorsToResponse.apply(directorService.findAll());
     }
 
 
     @Override
-    public GetDirectorResponse getDirector (UUID id) {
-        return directorService.getDirectorById(id)
+    public GetDirectorResponse getDirector(int id) {
+        return directorService.findById(id)
                 .map(directorToResponse)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
 
     @Override
-    public void deleteDirector(@PathVariable UUID id) {
-        directorService.getDirectorById(id)
+    public void deleteDirector(@PathVariable int id) {
+        directorService.findById(id)
                 .ifPresentOrElse(
-                        director -> directorService.deleteDirector(id),
+                        director -> directorService.delete(id),
                         () -> {
                             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
                         }

@@ -2,12 +2,10 @@ package com.artem.movieViewer.movie.entity;
 
 import com.artem.movieViewer.director.entity.Director;
 import jakarta.persistence.*;
-
-import java.io.Serializable;
-import java.util.UUID;
-
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+
+import java.io.Serializable;
 
 @Getter
 @Setter
@@ -17,11 +15,11 @@ import lombok.experimental.SuperBuilder;
 @ToString(callSuper = true)
 @EqualsAndHashCode
 @Entity
-@Table(name="movies")
+@Table(name = "movies")
 public class Movie implements Comparable<Movie>, Serializable {
     @Id
-    @Column(name = "id")
-    private final UUID id = UUID.randomUUID();
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    int id;
 
     @Column(name = "name")
     private String name;

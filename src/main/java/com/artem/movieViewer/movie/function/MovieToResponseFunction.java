@@ -1,7 +1,6 @@
 package com.artem.movieViewer.movie.function;
 
 
-
 import com.artem.movieViewer.movie.dto.GetMovieResponse;
 import com.artem.movieViewer.movie.entity.Movie;
 import org.springframework.stereotype.Component;

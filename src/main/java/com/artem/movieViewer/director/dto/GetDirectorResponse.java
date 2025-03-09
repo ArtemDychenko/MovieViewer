@@ -2,7 +2,7 @@ package com.artem.movieViewer.director.dto;
 
 import lombok.*;
 
-import java.util.UUID;
+import java.util.List;
 
 
 @Getter
@@ -12,7 +12,10 @@ import java.util.UUID;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @ToString
 @EqualsAndHashCode
-public class GetDirectorResponse implements Comparable<GetDirectorResponse> {
+public class GetDirectorResponse {
+    private int id;
+    private String name;
+    private int yearOfBirth;
 
     @Getter
     @Setter
@@ -22,7 +25,7 @@ public class GetDirectorResponse implements Comparable<GetDirectorResponse> {
     @ToString
     @EqualsAndHashCode
     public static class Movie {
-        private UUID id;
+        private int id;
 
         private String name;
 
@@ -33,14 +36,7 @@ public class GetDirectorResponse implements Comparable<GetDirectorResponse> {
         private String genre;
     }
 
-    private UUID id;
-    private String name;
-    private int yearOfBirth;
+    private List<Movie> movies;
 
-
-    @Override
-    public int compareTo(GetDirectorResponse other) {
-        return this.id.compareTo(other.id);
-    }
 
 }

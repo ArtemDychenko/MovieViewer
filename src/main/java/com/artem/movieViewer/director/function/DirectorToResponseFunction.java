@@ -17,13 +17,17 @@ public class DirectorToResponseFunction implements Function<Director, GetDirecto
                 .id(entity.getId())
                 .name(entity.getName())
                 .yearOfBirth(entity.getYearOfBirth())
-//                .movie(GetDirectorResponse.Movie.builder()
-//                        .id(entity.getMovies())
-//                        .name(entity.getName())
-//                        .date_of_release(entity.getYearOfBirth())
-//                        .genre(entity.get)
-//                        .build())
+                .movies(entity.getMovies().stream()
+                        .map(movie -> GetDirectorResponse.Movie.builder()
+                                .id(movie.getId())
+                                .name(movie.getName())
+                                .date_of_release(movie.getDate_of_release())
+                                .time(movie.getTime())
+                                .genre(movie.getGenre())
+                                .build())
+                        .toList())
                 .build();
+
     }
 
 }

@@ -7,11 +7,12 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @Repository
-public interface MovieRepository extends JpaRepository<Movie, UUID> {
+public interface MovieRepository extends JpaRepository<Movie, Integer> {
     List<Movie> findByGenre(String genre);
+
     Optional<Movie> findByName(String name);
+
     List<Movie> findAllByDirector(Director director);
 }

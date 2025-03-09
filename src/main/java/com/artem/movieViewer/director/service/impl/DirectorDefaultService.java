@@ -5,13 +5,10 @@ import com.artem.movieViewer.director.entity.Director;
 import com.artem.movieViewer.director.repository.api.DirectorRepository;
 import com.artem.movieViewer.director.service.api.DirectorService;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Service;
-
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 public class DirectorDefaultService implements DirectorService {
@@ -24,25 +21,25 @@ public class DirectorDefaultService implements DirectorService {
     }
 
     @Override
-    public List<Director> getAllDirectors() {
+    public List<Director> findAll() {
         return directorRepository.findAll();
     }
 
 
     @Override
-    public Optional<Director> getDirectorById(UUID id) {
+    public Optional<Director> findById(int id) {
         return directorRepository.findById(id);
     }
 
 
     @Override
-    public void createDirector(Director director) {
+    public void create(Director director) {
         directorRepository.save(director);
     }
 
 
     @Override
-    public void deleteDirector(UUID id) {
+    public void delete(int id) {
         directorRepository.deleteById(id);
     }
 
@@ -53,8 +50,6 @@ public class DirectorDefaultService implements DirectorService {
         }
         return directors;
     }
-
-
 
 
 }

@@ -1,8 +1,8 @@
 package com.artem.movieViewer.movie.service.impl;
 
 
-import com.artem.movieViewer.movie.entity.Movie;
 import com.artem.movieViewer.director.repository.api.DirectorRepository;
+import com.artem.movieViewer.movie.entity.Movie;
 import com.artem.movieViewer.movie.repository.api.MovieRepository;
 import com.artem.movieViewer.movie.service.api.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 public class MovieDefaultService implements MovieService {
@@ -29,22 +28,22 @@ public class MovieDefaultService implements MovieService {
     }
 
     @Override
-    public List<Movie> getAllMovies() {
+    public List<Movie> findAll() {
         return movieRepository.findAll();
     }
 
-    @Override
-    public void createMovie(Movie movie) {
-        movieRepository.save(movie);
-    }
+//    @Override
+//    public int create(Movie movie) {
+//        var newMovie = this.movieRepository.save(movie);
+//        return newMovie.getId();
+//    }
 
     @Override
     public void updateMovie(Movie movie) {
         movieRepository.save(movie);
     }
 
-    @Override
-    public Optional<Movie> findMovieById(UUID id) {
+    public Optional<Movie> findMovieById(int id) {
         return movieRepository.findById(id);
     }
 
@@ -53,13 +52,12 @@ public class MovieDefaultService implements MovieService {
         return movieRepository.findByName(name);
     }
 
-    @Override
-    public void deleteMovie(UUID id) {
+    public void deleteMovie(int id) {
         movieRepository.deleteById(id);
     }
 
     @Override
-    public Optional<List<Movie>> findAllByDirector(UUID directorId) {
+    public Optional<List<Movie>> findAllByDirector(int directorId) {
         return directorRepository.findById(directorId)
                 .map(movieRepository::findAllByDirector);
     }

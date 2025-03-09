@@ -1,22 +1,20 @@
 package com.artem.movieViewer.director.service.api;
 
 
-
 import com.artem.movieViewer.director.entity.Director;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 
 public interface DirectorService {
-    Optional<Director> getDirectorById(UUID id);
+    Optional<Director> findById(int id);
 
-    void createDirector(Director director);
+    void create(Director director);
 
-    List<Director> getAllDirectors();
+    List<Director> findAll();
 
-    void deleteDirector(UUID id);
+    void delete(int id);
 
 
 }

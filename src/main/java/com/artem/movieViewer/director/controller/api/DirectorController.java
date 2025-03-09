@@ -5,29 +5,27 @@ import com.artem.movieViewer.director.dto.GetDirectorsResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.UUID;
-
 public interface DirectorController {
 
-    @GetMapping("api/directors")
+    @GetMapping("api/director")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     GetDirectorsResponse getDirectors();
 
 
-    @GetMapping("/api/directors/{id}")
+    @GetMapping("/api/director/{id}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     GetDirectorResponse getDirector(
             @PathVariable("id")
-            UUID id
+            int id
     );
 
-    @DeleteMapping("/api/directors/{id}")
+    @DeleteMapping("/api/director/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     void deleteDirector(
             @PathVariable("id")
-            UUID id
+            int id
     );
 
 }
