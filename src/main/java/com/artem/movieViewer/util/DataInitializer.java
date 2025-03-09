@@ -4,6 +4,9 @@ import com.artem.movieViewer.director.entity.Director;
 import com.artem.movieViewer.movie.entity.Movie;
 import com.artem.movieViewer.director.repository.api.DirectorRepository;
 import com.artem.movieViewer.movie.repository.api.MovieRepository;
+import com.artem.movieViewer.user.entity.User;
+import com.artem.movieViewer.user.entity.UserRole;
+import com.artem.movieViewer.user.repository.api.UserRepository;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
@@ -19,6 +22,7 @@ public class DataInitializer {
 
     private final DirectorRepository directorRepository;
     private final MovieRepository movieRepository;
+    private final UserRepository userRepository;
 
     @Bean
     @Primary
@@ -29,9 +33,10 @@ public class DataInitializer {
     }
 
     @Autowired
-    public DataInitializer(DirectorRepository directorRepository, MovieRepository movieRepository) {
+    public DataInitializer(DirectorRepository directorRepository, MovieRepository movieRepository, UserRepository userRepository) {
         this.directorRepository = directorRepository;
         this.movieRepository = movieRepository;
+        this.userRepository = userRepository;
     }
 
     @Bean
@@ -66,8 +71,6 @@ public class DataInitializer {
                         .yearOfBirth(1963)
                         .build()
         );
-
-
         directorRepository.saveAll(directors);
 
         var movies = List.of(
@@ -105,7 +108,22 @@ public class DataInitializer {
                         .director(directors.get(2))
                         .build()
         );
-
         movieRepository.saveAll(movies);
+
+        var users = List.of(
+                User.builder()
+                        .email("user@user.com")
+                        .name("User 1")
+                        .role(UserRole.USER)
+                        .passHash("$2a$10$hHwnSpWQ7usdJ0B64Z8HKeK.F8rH/VOrYP0Egmiwf2UxnxNJv3DQW")
+                        .build(),
+                User.builder()
+                        .email("admin@admin.com")
+                        .name("Admin 1")
+                        .role(UserRole.ADMIN)
+                        .passHash("$2a$10$hHwnSpWQ7usdJ0B64Z8HKeK.F8rH/VOrYP0Egmiwf2UxnxNJv3DQW")
+                        .build()
+        );
+        userRepository.saveAll(users);
     }
 }
