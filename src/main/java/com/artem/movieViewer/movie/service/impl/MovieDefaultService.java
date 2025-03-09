@@ -32,15 +32,15 @@ public class MovieDefaultService implements MovieService {
         return movieRepository.findAll();
     }
 
-//    @Override
-//    public int create(Movie movie) {
-//        var newMovie = this.movieRepository.save(movie);
-//        return newMovie.getId();
-//    }
+    @Override
+    public int create(Movie movie) {
+        var newMovie = this.movieRepository.save(movie);
+        return newMovie.getId();
+    }
 
     @Override
-    public void updateMovie(Movie movie) {
-        movieRepository.save(movie);
+    public int update(Movie movie) {
+        return this.create(movie);
     }
 
     public Optional<Movie> findMovieById(int id) {
@@ -52,7 +52,7 @@ public class MovieDefaultService implements MovieService {
         return movieRepository.findByName(name);
     }
 
-    public void deleteMovie(int id) {
+    public void delete(int id) {
         movieRepository.deleteById(id);
     }
 

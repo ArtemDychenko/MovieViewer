@@ -11,13 +11,13 @@ public interface MovieService {
 
     Optional<Movie> findMovieByName(String name);
 
-//    int create(Movie movie);
+    int create(Movie movie);
 
     List<Movie> findAll();
 
-    void updateMovie(Movie movie);
+    int update(Movie movie);
 
-    void deleteMovie(int id);
+    void delete(int id);
 
     Optional<List<Movie>> findAllByDirector(int directorId);
 
