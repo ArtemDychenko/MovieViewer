@@ -1,13 +1,8 @@
 package com.artem.movieViewer.comment.controller.api;
 
-import com.artem.movieViewer.comment.dto.GetCommentResponse;
 import com.artem.movieViewer.comment.dto.GetCommentsResponse;
 import com.artem.movieViewer.comment.dto.PostCommentRequest;
 import com.artem.movieViewer.comment.dto.PutCommentRequest;
-import com.artem.movieViewer.director.dto.GetDirectorResponse;
-import com.artem.movieViewer.director.dto.GetDirectorsResponse;
-import com.artem.movieViewer.director.dto.PostDirectorRequest;
-import com.artem.movieViewer.director.dto.PutDirectorRequest;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -22,13 +17,13 @@ public interface CommentController {
     GetCommentsResponse getComments();
 
 
-    @GetMapping("/api/comment/{id}")
-    @ResponseStatus(HttpStatus.OK)
-    @ResponseBody
-    GetCommentResponse getComment(
-            @PathVariable("id")
-            int id
-    );
+//    @GetMapping("/api/comment/{id}")
+//    @ResponseStatus(HttpStatus.OK)
+//    @ResponseBody
+//    GetCommentResponse getComment(
+//            @PathVariable("id")
+//            int id
+//    );
 
     @PostMapping("api/comment")
     @ResponseStatus(HttpStatus.CREATED)

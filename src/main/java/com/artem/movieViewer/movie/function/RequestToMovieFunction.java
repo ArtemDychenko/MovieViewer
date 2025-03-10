@@ -5,11 +5,9 @@ import com.artem.movieViewer.director.entity.Director;
 import com.artem.movieViewer.movie.dto.PostMovieRequest;
 import com.artem.movieViewer.movie.dto.PutMovieRequest;
 import com.artem.movieViewer.movie.entity.Movie;
-import com.artem.movieViewer.movie.service.api.MovieService;
 import org.springframework.stereotype.Component;
 
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
 @Component
 public class RequestToMovieFunction implements Function<PostMovieRequest, Movie> {

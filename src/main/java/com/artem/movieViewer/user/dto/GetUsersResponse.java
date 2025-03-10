@@ -25,7 +25,6 @@ public class GetUsersResponse {
     @ToString
     @EqualsAndHashCode
     public static class User {
-
         private int id;
         private String email;
         private String name;

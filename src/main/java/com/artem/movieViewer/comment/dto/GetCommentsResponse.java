@@ -1,6 +1,6 @@
 package com.artem.movieViewer.comment.dto;
 
-import com.artem.movieViewer.director.dto.GetDirectorsResponse;
+import com.artem.movieViewer.user.entity.UserRole;
 import lombok.*;
 
 import java.util.List;
@@ -20,7 +20,12 @@ public class GetCommentsResponse {
     @Builder
     public static class Comment {
         private int id;
+
         private String content;
+
+        private int movieId;
+
+        private int userId;
     }
 
     private List<GetCommentsResponse.Comment> comments;

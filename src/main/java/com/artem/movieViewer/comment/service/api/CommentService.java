@@ -1,7 +1,6 @@
 package com.artem.movieViewer.comment.service.api;
 
 import com.artem.movieViewer.comment.entity.Comment;
-import com.artem.movieViewer.movie.entity.Movie;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,10 +1,7 @@
 package com.artem.movieViewer.comment.function;
 
-import com.artem.movieViewer.comment.dto.GetCommentResponse;
 import com.artem.movieViewer.comment.dto.GetCommentsResponse;
 import com.artem.movieViewer.comment.entity.Comment;
-import com.artem.movieViewer.movie.dto.GetMoviesResponse;
-import com.artem.movieViewer.movie.entity.Movie;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -20,6 +17,8 @@ public class CommentsToResponseFunction implements Function<List<Comment>, GetCo
                         .map(comment -> GetCommentsResponse.Comment.builder()
                                 .id(comment.getId())
                                 .content(comment.getContent())
+                                .movieId(comment.getMovie().getId())
+                                .userId(comment.getUser().getId())
                                 .build())
                         .toList())
                 .build();

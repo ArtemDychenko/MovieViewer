@@ -30,4 +30,9 @@ public class Comment implements Serializable {
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     User user;
+
+    @Builder.Default
+    @Enumerated(EnumType.STRING)
+    CommentStatus status = CommentStatus.ACTIVE;
+
 }

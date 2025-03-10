@@ -1,6 +1,5 @@
 package com.artem.movieViewer.movie.dto;
 
-import com.artem.movieViewer.comment.entity.Comment;
 import lombok.*;
 
 import java.util.List;
