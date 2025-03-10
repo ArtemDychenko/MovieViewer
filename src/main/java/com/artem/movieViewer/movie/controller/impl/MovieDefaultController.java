@@ -50,7 +50,7 @@ public class MovieDefaultController implements MovieController {
 
     @Override
     public GetMovieResponse getMovie(int id) {
-        return movieService.findMovieById(id)
+        return movieService.findById(id)
                 .map(movieToResponse)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
@@ -69,7 +69,7 @@ public class MovieDefaultController implements MovieController {
 
     @Override
     public void deleteMovie(@PathVariable int id) {
-        movieService.findMovieById(id)
+        movieService.findById(id)
                 .ifPresentOrElse(
                         Movie -> movieService.delete(id),
                         () -> {

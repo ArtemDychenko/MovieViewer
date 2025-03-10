@@ -7,9 +7,9 @@ import java.util.Optional;
 
 public interface MovieService {
 
-    Optional<Movie> findMovieById(int id);
+    Optional<Movie> findById(int id);
 
-    Optional<Movie> findMovieByName(String name);
+    Optional<Movie> findByName(String name);
 
     int create(Movie movie);
 

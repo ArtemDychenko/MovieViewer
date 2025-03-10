@@ -43,12 +43,12 @@ public class MovieDefaultService implements MovieService {
         return this.create(movie);
     }
 
-    public Optional<Movie> findMovieById(int id) {
+    public Optional<Movie> findById(int id) {
         return movieRepository.findById(id);
     }
 
     @Override
-    public Optional<Movie> findMovieByName(String name) {
+    public Optional<Movie> findByName(String name) {
         return movieRepository.findByName(name);
     }
 

@@ -1,4 +1,4 @@
-package com.artem.movieViewer.movie.dto;
+package com.artem.movieViewer.comment.dto;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -13,17 +13,11 @@ import java.util.List;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @ToString
 @EqualsAndHashCode
-public class PostMovieRequest {
+public class PostCommentRequest {
     @NotNull
-    String name;
+    String content;
     @NotNull
-    int date_of_release;
+    int userId;
     @NotNull
-    int time;
-    @NotNull
-    String genre;
-    @NotNull
-    int director;
-    @NotEmpty
-    private List<@NotNull Integer> comments;
+    int movieId;
 }

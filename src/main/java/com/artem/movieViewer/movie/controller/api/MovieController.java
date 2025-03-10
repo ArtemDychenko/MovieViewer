@@ -32,7 +32,7 @@ public interface MovieController {
     @ResponseBody
     Map<String, Integer> postMovie(@RequestBody @Valid PostMovieRequest request);
 
-    @PutMapping("/api/movie/{id")
+    @PutMapping("/api/movie/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     Map<String, Integer> putMovie(@PathVariable int id, @RequestBody @Valid PutMovieRequest request);

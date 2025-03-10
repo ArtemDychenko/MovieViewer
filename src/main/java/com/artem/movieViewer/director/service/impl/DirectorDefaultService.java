@@ -33,8 +33,9 @@ public class DirectorDefaultService implements DirectorService {
 
 
     @Override
-    public void create(Director director) {
-        directorRepository.save(director);
+    public int create(Director director) {
+        var newDirector = this.directorRepository.save(director);
+        return newDirector.getId();
     }
 
 

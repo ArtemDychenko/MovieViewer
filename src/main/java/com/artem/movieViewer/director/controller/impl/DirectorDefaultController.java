@@ -4,6 +4,7 @@ import com.artem.movieViewer.director.controller.api.DirectorController;
 import com.artem.movieViewer.director.dto.GetDirectorResponse;
 import com.artem.movieViewer.director.dto.GetDirectorsResponse;
 import com.artem.movieViewer.director.dto.PostDirectorRequest;
+import com.artem.movieViewer.director.dto.PutDirectorRequest;
 import com.artem.movieViewer.director.function.DirectorToResponseFunction;
 import com.artem.movieViewer.director.function.DirectorsToResponseFunction;
 import com.artem.movieViewer.director.function.RequestToDirectorFunction;
@@ -53,6 +54,12 @@ public class DirectorDefaultController implements DirectorController {
 
     @Override
     public Map<String, Integer> postDirector(PostDirectorRequest request) {
+        int newDirectorId = directorService.create(requestToDirector.apply(request));
+        return Map.of("id", newDirectorId);
+    }
+
+    @Override
+    public Map<String, Integer> putDirector(int id, PutDirectorRequest request) {
         int newDirectorId = directorService.create(requestToDirector.apply(request));
         return Map.of("id", newDirectorId);
     }

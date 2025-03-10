@@ -10,7 +10,7 @@ import java.util.Optional;
 public interface DirectorService {
     Optional<Director> findById(int id);
 
-    void create(Director director);
+    int create(Director director);
 
     List<Director> findAll();
 

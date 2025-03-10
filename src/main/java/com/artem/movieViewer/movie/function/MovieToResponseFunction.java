@@ -1,6 +1,5 @@
 package com.artem.movieViewer.movie.function;
 
-
 import com.artem.movieViewer.movie.dto.GetMovieResponse;
 import com.artem.movieViewer.movie.entity.Movie;
 import org.springframework.stereotype.Component;
@@ -23,6 +22,12 @@ public class MovieToResponseFunction implements Function<Movie, GetMovieResponse
                         .name(entity.getDirector().getName())
                         .yearOfBirth(entity.getDirector().getYearOfBirth())
                         .build())
+                .comments(entity.getComments().stream()
+                        .map(comment -> GetMovieResponse.Comment.builder()
+                                .id(comment.getId())
+                                .content(comment.getContent())
+                                .build())
+                        .toList())
                 .build();
 
     }

@@ -1,6 +1,9 @@
 package com.artem.movieViewer.movie.dto;
 
+import com.artem.movieViewer.comment.entity.Comment;
 import lombok.*;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -26,6 +29,20 @@ public class GetMovieResponse {
         private int yearOfBirth;
     }
 
+    @Getter
+    @Setter
+    @Builder
+    @NoArgsConstructor
+    @AllArgsConstructor(access = AccessLevel.PRIVATE)
+    @ToString
+    @EqualsAndHashCode
+    public static class Comment {
+        private int id;
+
+        private String content;
+
+    }
+
     private int id;
 
     private String name;
@@ -38,5 +55,5 @@ public class GetMovieResponse {
 
     private Director director;
 
-
+    private List<Comment> comments;
 }

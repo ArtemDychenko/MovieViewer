@@ -1,5 +1,7 @@
 package com.artem.movieViewer.util;
 
+import com.artem.movieViewer.comment.entity.Comment;
+import com.artem.movieViewer.comment.repository.api.CommentRepository;
 import com.artem.movieViewer.director.entity.Director;
 import com.artem.movieViewer.director.repository.api.DirectorRepository;
 import com.artem.movieViewer.movie.entity.Movie;
@@ -23,6 +25,7 @@ public class DataInitializer {
     private final DirectorRepository directorRepository;
     private final MovieRepository movieRepository;
     private final UserRepository userRepository;
+    private final CommentRepository commentRepository;
 
     @Bean
     @Primary
@@ -33,10 +36,11 @@ public class DataInitializer {
     }
 
     @Autowired
-    public DataInitializer(DirectorRepository directorRepository, MovieRepository movieRepository, UserRepository userRepository) {
+    public DataInitializer(DirectorRepository directorRepository, MovieRepository movieRepository, UserRepository userRepository, CommentRepository commentRepository) {
         this.directorRepository = directorRepository;
         this.movieRepository = movieRepository;
         this.userRepository = userRepository;
+        this.commentRepository = commentRepository;
     }
 
     @Bean
@@ -69,6 +73,11 @@ public class DataInitializer {
                 Director.builder()
                         .name("Quentin Tarantino")
                         .yearOfBirth(1963)
+                        .build(),
+
+                Director.builder()
+                        .name("Andrew Adamson")
+                        .yearOfBirth(1966)
                         .build()
         );
         directorRepository.saveAll(directors);
@@ -106,6 +115,14 @@ public class DataInitializer {
                         .time(130)
                         .genre("Comedy Drama")
                         .director(directors.get(2))
+                        .build(),
+
+                Movie.builder()
+                        .name("Shrek")
+                        .date_of_release(2001)
+                        .time(89)
+                        .genre("Comedy Fantasy")
+                        .director(directors.get(4))
                         .build()
         );
         movieRepository.saveAll(movies);
@@ -117,6 +134,7 @@ public class DataInitializer {
                         .role(UserRole.USER)
                         .passHash("$2a$10$hHwnSpWQ7usdJ0B64Z8HKeK.F8rH/VOrYP0Egmiwf2UxnxNJv3DQW")
                         .build(),
+
                 User.builder()
                         .email("admin@admin.com")
                         .name("Admin 1")
@@ -125,5 +143,26 @@ public class DataInitializer {
                         .build()
         );
         userRepository.saveAll(users);
+
+        var comments = List.of(
+                Comment.builder()
+                        .content("Wow, great film!")
+                        .user(users.get(0))
+                        .movie(movies.get(1))
+                        .build(),
+
+                Comment.builder()
+                        .content("Amazing!")
+                        .user(users.get(0))
+                        .movie(movies.get(3))
+                        .build(),
+
+                Comment.builder()
+                        .content("Shrek co oni ci zrobili")
+                        .user(users.get(0))
+                        .movie(movies.get(4))
+                        .build()
+        );
+        commentRepository.saveAll(comments);
     }
 }
